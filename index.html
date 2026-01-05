@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Design Portfolio | Ballesteros Smart Solutions S.A.S</title>
+    <meta
+      name="description"
+      content="Portafolio de páginas web (bocetos y demos) desarrolladas por Ballesteros Smart Solutions S.A.S. Diseños modernos, responsive y listos para GitHub Pages."
+    />
+
+    <style>
+      :root {
+        --bg: #0b1220;
+        --bg2: #070b12;
+        --card: rgba(255, 255, 255, 0.06);
+        --card2: rgba(255, 255, 255, 0.08);
+        --border: rgba(255, 255, 255, 0.14);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --accent: #38bdf8;
+        --accent2: #22c55e;
+        --warn: #f59e0b;
+        --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+        --shadow2: 0 14px 40px rgba(0, 0, 0, 0.35);
+        --max: 1120px;
+        --r-xl: 22px;
+        --r-lg: 18px;
+        --r-md: 16px;
+        --r-sm: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(
+            1000px 600px at 12% -10%,
+            rgba(56, 189, 248, 0.35),
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 600px at 90% 0%,
+            rgba(34, 197, 94, 0.25),
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 600px at 50% 0%,
+            rgba(245, 158, 11, 0.08),
+            transparent 60%
+          ),
+          linear-gradient(180deg, #050a14 0%, var(--bg) 35%, var(--bg2) 100%);
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      /* ===== Header ===== */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 80;
+        backdrop-filter: blur(12px);
+        background: rgba(6, 10, 18, 0.55);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 220px;
+      }
+
+      .logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 1),
+          rgba(56, 189, 248, 0.95)
+        );
+        box-shadow: 0 10px 22px rgba(56, 189, 248, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        display: grid;
+        place-items: center;
+      }
+
+      .logo svg {
+        width: 20px;
+        height: 20px;
+        opacity: 0.95;
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 13.5px;
+        letter-spacing: 0.2px;
+        line-height: 1.1;
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 3px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .navlinks {
+        display: none;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .navlinks a {
+        font-size: 12.5px;
+        color: var(--muted);
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        transition: 0.2s ease;
+      }
+
+      .navlinks a:hover {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 12.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: transform 0.08s ease, background 0.2s ease,
+          border-color 0.2s ease;
+        user-select: none;
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn.primary {
+        border: none;
+        background: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 1),
+          rgba(56, 189, 248, 0.95)
+        );
+        color: #062012;
+        font-weight: 900;
+      }
+
+      .btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .hamb {
+        display: inline-flex;
+      }
+
+      #mobileMenu {
+        display: none;
+        padding: 0 0 14px;
+      }
+
+      .mobileLinks {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* ===== Hero ===== */
+      .hero {
+        padding: 56px 0 26px;
+      }
+
+      .heroGrid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .badge {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: var(--muted);
+        font-size: 12.5px;
+        width: fit-content;
+      }
+
+      .badge .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, #fff, rgba(255, 255, 255, 0.2)),
+          linear-gradient(135deg, var(--accent2), var(--accent));
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.05;
+        letter-spacing: -0.6px;
+      }
+
+      .lead {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14.5px;
+        line-height: 1.7;
+        max-width: 68ch;
+      }
+
+      .heroActions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 0;
+      }
+
+      .stats {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .stat {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        padding: 12px;
+      }
+
+      .stat b {
+        display: block;
+        font-size: 18px;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 6px;
+        font-size: 12.5px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .sideCard {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--r-xl);
+        box-shadow: var(--shadow);
+        padding: 16px;
+      }
+
+      .sideCard strong {
+        font-size: 13.5px;
+      }
+
+      .checklist {
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .checklist li {
+        display: flex;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .tick {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: rgba(34, 197, 94, 0.18);
+        border: 1px solid rgba(34, 197, 94, 0.22);
+        flex: 0 0 auto;
+      }
+
+      /* ===== Sections ===== */
+      section {
+        padding: 34px 0;
+      }
+
+      .sectionTitle {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .sectionTitle h2 {
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+      }
+
+      .sectionTitle p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--r-xl);
+        padding: 16px;
+        box-shadow: var(--shadow2);
+      }
+
+      .tag {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: var(--muted);
+        font-size: 12px;
+        width: fit-content;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .dotSmall {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent2), var(--accent));
+      }
+
+      .card h3 {
+        margin: 10px 0 6px;
+        font-size: 14px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .metaRow {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        font-size: 11.5px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .projectBtns {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn.ghost {
+        background: transparent;
+      }
+
+      /* ===== Process ===== */
+      .steps {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .step {
+        display: grid;
+        gap: 10px;
+      }
+
+      .stepHead {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .num {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* ===== FAQ ===== */
+      details {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        padding: 12px 14px;
+      }
+
+      details summary {
+        cursor: pointer;
+        font-weight: 800;
+        font-size: 13px;
+      }
+
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .faqGrid {
+        display: grid;
+        gap: 12px;
+      }
+
+      /* ===== Footer ===== */
+      footer {
+        padding: 22px 0 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 12.5px;
+      }
+
+      .foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .watermark {
+        opacity: 0.85;
+      }
+
+      /* ===== Mobile ===== */
+      @media (max-width: 980px) {
+        .heroGrid {
+          grid-template-columns: 1fr;
+        }
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .navlinks {
+          display: none;
+        }
+        .hamb {
+          display: inline-flex;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===== Topbar ===== -->
+    <div class="topbar">
+      <div class="container">
+        <div class="nav">
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 7h16v10H4z"
+                  stroke="white"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7 10h10"
+                  stroke="white"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <strong>Ballesteros Smart Solutions S.A.S</strong>
+              <span>Web Design Portfolio • Demos para clientes</span>
+            </div>
+          </div>
+
+          <div class="navlinks">
+            <a href="#proyectos">Proyectos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#faq">FAQ</a>
+          </div>
+
+          <div class="actions">
+            <a class="btn" href="mailto:ballesterossmartsolutionssas@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 6h16v12H4z"
+                  stroke="white"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m4 7 8 6 8-6"
+                  stroke="white"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Correo
+            </a>
+
+            <button class="btn primary hamb" id="menuBtn" type="button">
+              Menú
+            </button>
+          </div>
+        </div>
+
+        <div id="mobileMenu">
+          <div class="mobileLinks">
+            <a class="btn ghost" href="#proyectos">Proyectos</a>
+            <a class="btn ghost" href="#servicios">Servicios</a>
+            <a class="btn ghost" href="#proceso">Proceso</a>
+            <a class="btn ghost" href="#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Hero ===== -->
+    <header class="hero">
+      <div class="container">
+        <div class="heroGrid">
+          <div>
+            <div class="badge">
+              <span class="dot" aria-hidden="true"></span>
+              Plantillas premium • Responsive • Listas para GitHub Pages
+            </div>
+
+            <h1>Portafolio de Landing Pages (Bocetos)</h1>
+            <p class="lead">
+              Colección de diseños web para mostrar a clientes potenciales.
+              Cada demo es <b>personalizable</b> (marca, colores, copy, secciones y
+              contacto) y puede evolucionar a un sitio completo con formularios,
+              SEO, analítica y despliegue profesional.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn primary" href="#proyectos">Ver demos</a>
+              <a class="btn" href="#servicios">Qué ofrezco</a>
+              <a
+                class="btn"
+                href="mailto:ballesterossmartsolutionssas@gmail.com?subject=Solicitud%20de%20demo%20web&body=Hola%2C%20quiero%20ver%20demos%20y%20cotizar%20una%20p%C3%A1gina%20web."
+              >
+                Solicitar demo
+              </a>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <b>3</b>
+                <span>Diseños listos y hosteados con GitHub Pages.</span>
+              </div>
+              <div class="stat">
+                <b>100%</b>
+                <span>Responsive (móvil, tablet y desktop).</span>
+              </div>
+              <div class="stat">
+                <b>Sin backend</b>
+                <span>Formularios con mailto + botones de contacto directo.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="sideCard">
+            <strong>Incluye en cada demo</strong>
+            <ul class="checklist">
+              <li>
+                <span class="tick">✓</span>
+                Estructura comercial (hero, beneficios, proceso, contacto).
+              </li>
+              <li>
+                <span class="tick">✓</span>
+                Copy persuasivo adaptado al nicho (técnico, boutique, etc.).
+              </li>
+              <li>
+                <span class="tick">✓</span>
+                Paleta de colores consistente + componentes reutilizables.
+              </li>
+              <li>
+                <span class="tick">✓</span>
+                Marca de agua y personalización rápida para clientes.
+              </li>
+            </ul>
+
+            <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a class="btn primary" href="#proceso">Proceso</a>
+              <a class="btn" href="mailto:ballesterossmartsolutionssas@gmail.com">Contacto</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Projects ===== -->
+    <section id="proyectos">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h2>Proyectos (demos)</h2>
+            <p>Abre cada enlace para ver el diseño en vivo (GitHub Pages).</p>
+          </div>
+          <span class="tag"><span class="dotSmall"></span>HTML • CSS • JS</span>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Fashion / Boutique</span>
+            <h3>Paris Boutique</h3>
+            <p>
+              Landing elegante con estilo premium: catálogo mock, FAQ, testimonios y
+              CTA de contacto listo para conversión.
+            </p>
+            <div class="metaRow">
+              <span class="chip">Diseño premium</span>
+              <span class="chip">Secciones completas</span>
+              <span class="chip">Formulario mailto</span>
+            </div>
+            <div class="projectBtns">
+              <a class="btn primary" href="./paris-boutique/">Abrir demo</a>
+              <a class="btn" href="./paris-boutique/" title="Ruta del proyecto">Ver carpeta</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Servicio técnico</span>
+            <h3>RefriLavadoras — Dark Theme</h3>
+            <p>
+              Diseño oscuro premium, enfocado a conversión: servicios, proceso,
+              formulario y WhatsApp directo.
+            </p>
+            <div class="metaRow">
+              <span class="chip">Dark UI</span>
+              <span class="chip">Call-to-action</span>
+              <span class="chip">Domicilio</span>
+            </div>
+            <div class="projectBtns">
+              <a class="btn primary" href="./appliance-repair-dark/">Abrir demo</a>
+              <a class="btn" href="./appliance-repair-dark/">Ver carpeta</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Servicio técnico</span>
+            <h3>RefriLavadoras — Light Theme</h3>
+            <p>
+              Versión clara con azules suaves, más “corporativa”.
+              Ideal para marcas que quieren confianza y limpieza visual.
+            </p>
+            <div class="metaRow">
+              <span class="chip">Light UI</span>
+              <span class="chip">Azules suaves</span>
+              <span class="chip">Copy claro</span>
+            </div>
+            <div class="projectBtns">
+              <a class="btn primary" href="./appliance-repair-light/">Abrir demo</a>
+              <a class="btn" href="./appliance-repair-light/">Ver carpeta</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Services ===== -->
+    <section id="servicios">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h2>Servicios (para clientes)</h2>
+            <p>Qué puedes ofrecer cuando presentes estos demos.</p>
+          </div>
+          <span class="tag"><span class="dotSmall"></span>Escalable</span>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Landing page</span>
+            <h3>Diseño + copy persuasivo</h3>
+            <p>
+              Estructura enfocada a conversión: propuesta de valor, beneficios,
+              proceso, pruebas sociales y CTA.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Personalización</span>
+            <h3>Marca / colores / logo</h3>
+            <p>
+              Adaptación rápida al cliente: colores corporativos, imágenes, secciones,
+              WhatsApp, correo y textos.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Deploy</span>
+            <h3>Hosting + enlace compartible</h3>
+            <p>
+              Publicación en GitHub Pages y entrega del link. Opcional:
+              dominio propio, analytics y SEO básico.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Process ===== -->
+    <section id="proceso">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h2>Proceso de trabajo</h2>
+            <p>Flujo recomendado para convertir un demo en un sitio real.</p>
+          </div>
+          <span class="tag"><span class="dotSmall"></span>4 pasos</span>
+        </div>
+
+        <div class="steps">
+          <div class="card step">
+            <div class="stepHead">
+              <div class="num">1</div>
+              <h3 style="margin:0;">Brief rápido</h3>
+            </div>
+            <p>Industria, objetivo, ciudad, contacto y estilo (moderno, minimal, premium).</p>
+          </div>
+
+          <div class="card step">
+            <div class="stepHead">
+              <div class="num">2</div>
+              <h3 style="margin:0;">Personalización</h3>
+            </div>
+            <p>Colores, logo, textos y secciones. Ajuste a marca del cliente.</p>
+          </div>
+
+          <div class="card step">
+            <div class="stepHead">
+              <div class="num">3</div>
+              <h3 style="margin:0;">Revisión</h3>
+            </div>
+            <p>Feedback, correcciones, mejora de copy y CTA para conversión.</p>
+          </div>
+
+          <div class="card step">
+            <div class="stepHead">
+              <div class="num">4</div>
+              <h3 style="margin:0;">Publicación</h3>
+            </div>
+            <p>GitHub Pages + entrega del enlace. Opcional: dominio y analítica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h2>Preguntas frecuentes</h2>
+            <p>Esto ayuda mucho cuando lo muestres a un cliente.</p>
+          </div>
+          <span class="tag"><span class="dotSmall"></span>Cliente</span>
+        </div>
+
+        <div class="faqGrid">
+          <details>
+            <summary>¿Estos demos ya se pueden usar para un negocio real?</summary>
+            <p>
+              Sí: se pueden personalizar con logo, colores, textos, ciudad y servicios. Si se requiere
+              formulario real (sin mailto), se integra backend o servicios externos.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Se puede conectar con WhatsApp y correo del cliente?</summary>
+            <p>
+              Claro. Se ajusta el número con formato wa.me y el correo con mailto. También se puede
+              agregar botón de llamada, redes sociales y Google Maps.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Se puede poner dominio propio y SEO?</summary>
+            <p>
+              Sí. Se puede conectar un dominio, optimizar títulos/descripciones, y agregar analítica.
+              Para SEO avanzado se recomienda un sitio multipágina o framework.
+            </p>
+          </details>
+        </div>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="mailto:ballesterossmartsolutionssas@gmail.com?subject=Cotizaci%C3%B3n%20Landing%20Page&body=Hola%2C%20quiero%20cotizar%20una%20landing%20page.%20Mi%20negocio%20es%3A%20%5B...%5D%20">
+            Cotizar por correo
+          </a>
+          <a class="btn" href="#proyectos">Volver a proyectos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <div>
+            © <span id="year"></span> • Web Design Portfolio
+            <span style="color:var(--muted2)">— demos para clientes</span>
+          </div>
+          <div class="watermark">
+            Diseño y desarrollo por <b>Ballesteros Smart Solutions S.A.S</b> •
+            <a href="mailto:ballesterossmartsolutionssas@gmail.com">ballesterossmartsolutionssas@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Año dinámico
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Menú móvil
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuBtn) {
+        menuBtn.addEventListener("click", () => {
+          const open = mobileMenu.style.display === "block";
+          mobileMenu.style.display = open ? "none" : "block";
+          menuBtn.textContent = open ? "Menú" : "Cerrar";
+        });
+      }
+    </script>
+  </body>
+</html>

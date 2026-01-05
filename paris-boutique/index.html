@@ -1,0 +1,1529 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paris Boutique | Moda femenina</title>
+    <meta
+      name="description"
+      content="Paris Boutique: moda femenina con elegancia, estilo europeo y calidad premium."
+    />
+
+    <style>
+      /* ====== Base ====== */
+      :root {
+        --ivory: #fdf8f2;
+        --white: #ffffff;
+        --nude: #f5e7db;
+        --beige: #e9d9c8;
+        --blush: #f3d6df;
+        --rose: #eec3d0;
+        --black: #151515;
+        --gold: #c5a572;
+        --muted: rgba(21, 21, 21, 0.65);
+        --muted2: rgba(21, 21, 21, 0.45);
+        --stroke: rgba(21, 21, 21, 0.09);
+        --shadow: 0 18px 48px rgba(21, 21, 21, 0.08);
+        --shadow2: 0 12px 30px rgba(21, 21, 21, 0.08);
+        --r-xl: 28px;
+        --r-lg: 24px;
+        --r-md: 20px;
+        --r-sm: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: radial-gradient(1000px 600px at 10% -10%, rgba(238, 195, 208, 0.55), transparent 55%),
+          radial-gradient(950px 600px at 95% 0%, rgba(245, 231, 219, 0.75), transparent 55%),
+          linear-gradient(180deg, var(--ivory) 0%, #fff 42%, var(--ivory) 100%);
+        color: var(--black);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: min(1120px, 100% - 32px);
+        margin: 0 auto;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* ====== Header ====== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--stroke);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 180px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--nude), var(--blush));
+        border: 1px solid rgba(21, 21, 21, 0.10);
+        box-shadow: var(--shadow2);
+        display: grid;
+        place-items: center;
+      }
+
+      .brand-mark svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .brand-name {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand-title {
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .brand-sub {
+        font-size: 12px;
+        color: var(--muted2);
+        letter-spacing: 0.2px;
+      }
+
+      .nav-links {
+        display: none;
+        gap: 18px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(21, 21, 21, 0.75);
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        padding: 10px 10px;
+        border-radius: 999px;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(245, 231, 219, 0.55);
+        color: var(--black);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid var(--black);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: transparent;
+        cursor: pointer;
+        transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+        user-select: none;
+      }
+
+      .btn:hover {
+        background: rgba(21, 21, 21, 0.04);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn.primary {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .btn.primary:hover {
+        background: #000;
+      }
+
+      .btn.accent {
+        border-color: var(--gold);
+      }
+
+      .btn.soft {
+        border-color: rgba(21, 21, 21, 0.18);
+        background: rgba(255, 255, 255, 0.65);
+      }
+
+      .btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .hamb {
+        display: inline-flex;
+      }
+
+      #mobileMenu {
+        display: none;
+        padding: 0 0 14px;
+      }
+
+      .mobileLinks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      /* ====== Hero ====== */
+      .hero {
+        padding: 54px 0 36px;
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 26px;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid var(--stroke);
+        box-shadow: var(--shadow2);
+        color: rgba(21, 21, 21, 0.78);
+        font-size: 12px;
+        letter-spacing: 0.6px;
+      }
+
+      .kicker .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #fff, rgba(255, 255, 255, 0.2)),
+          linear-gradient(135deg, var(--gold), var(--rose));
+      }
+
+      .hero-text h1 {
+        font-size: clamp(38px, 7vw, 66px);
+        margin: 14px 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        line-height: 1.02;
+      }
+
+      .hero-text p {
+        margin: 0 0 18px;
+        font-size: 16px;
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 62ch;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .hero-card {
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: var(--r-xl);
+        padding: 22px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--stroke);
+      }
+
+      .hero-card h3 {
+        margin: 0 0 14px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .hero-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero-card li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* ====== Sections ====== */
+      section {
+        padding: 56px 0;
+      }
+
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 20px;
+        margin-bottom: 22px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .section-title p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: var(--r-md);
+        padding: 22px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--stroke);
+      }
+
+      /* ====== Collections / Products ====== */
+      .collections {
+        background: rgba(255, 255, 255, 0.35);
+        border-top: 1px solid var(--stroke);
+        border-bottom: 1px solid var(--stroke);
+      }
+
+      .collection-card {
+        border: 1px solid rgba(21, 21, 21, 0.09);
+        background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,231,219,0.88));
+        transition: transform 0.10s ease;
+      }
+
+      .collection-card:hover {
+        transform: translateY(-1px);
+      }
+
+      .collection-card h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+
+      .collection-card p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.72);
+        color: rgba(21, 21, 21, 0.78);
+        font-size: 12px;
+        letter-spacing: 0.4px;
+      }
+
+      .product-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .product {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(21, 21, 21, 0.09);
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow2);
+        display: grid;
+        gap: 0;
+        transition: transform 0.10s ease;
+      }
+
+      .product:hover {
+        transform: translateY(-1px);
+      }
+
+      .product-media {
+        position: relative;
+        padding: 24px;
+        background:
+          radial-gradient(400px 240px at 30% 20%, rgba(238,195,208,0.60), transparent 55%),
+          radial-gradient(420px 240px at 80% 30%, rgba(245,231,219,0.80), transparent 55%),
+          linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,231,219,0.85));
+        min-height: 150px;
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 1px solid rgba(21, 21, 21, 0.12);
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .product-badge.gold {
+        border-color: rgba(197, 165, 114, 0.45);
+      }
+
+      .product-placeholder {
+        width: 100%;
+        height: 110px;
+        border-radius: 18px;
+        border: 1px dashed rgba(21, 21, 21, 0.18);
+        background: rgba(255, 255, 255, 0.7);
+        display: grid;
+        place-items: center;
+        color: rgba(21, 21, 21, 0.55);
+        font-size: 12px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+      }
+
+      .product-body {
+        padding: 18px 18px 18px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .product-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .product-title h4 {
+        margin: 0;
+        font-size: 15px;
+        letter-spacing: 0.2px;
+      }
+
+      .price {
+        font-weight: 700;
+        color: rgba(21, 21, 21, 0.82);
+      }
+
+      .product-desc {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .product-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        font-size: 11px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(21, 21, 21, 0.10);
+        background: rgba(255, 255, 255, 0.8);
+        color: rgba(21, 21, 21, 0.75);
+      }
+
+      .product-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 4px;
+      }
+
+      /* ====== About ====== */
+      .about {
+        display: grid;
+        gap: 16px;
+      }
+
+      .about-card p {
+        margin: 0;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .about-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      /* ====== Benefits ====== */
+      .benefits-strip {
+        background: rgba(255, 255, 255, 0.70);
+        border-top: 1px solid var(--stroke);
+        border-bottom: 1px solid var(--stroke);
+      }
+
+      .benefit-item {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .benefit-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(21, 21, 21, 0.10);
+        background: linear-gradient(135deg, rgba(245,231,219,0.9), rgba(243,214,223,0.9));
+      }
+
+      .benefit-item h4 {
+        margin: 0 0 6px;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+      }
+
+      .benefit-item p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* ====== Testimonials ====== */
+      .quote {
+        display: grid;
+        gap: 10px;
+      }
+
+      .stars {
+        letter-spacing: 2px;
+        color: rgba(197, 165, 114, 0.95);
+        font-size: 12px;
+      }
+
+      .quote p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 13px;
+      }
+
+      .who {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        color: rgba(21, 21, 21, 0.55);
+        font-size: 12px;
+      }
+
+      /* ====== FAQ ====== */
+      details {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--stroke);
+        border-radius: 16px;
+        padding: 14px 14px;
+        box-shadow: var(--shadow2);
+      }
+
+      details summary {
+        cursor: pointer;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 13px;
+      }
+
+      /* ====== Contact ====== */
+      .contact {
+        display: grid;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .contact-card p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      form {
+        display: grid;
+        gap: 12px;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      label {
+        font-size: 12px;
+        color: rgba(21, 21, 21, 0.65);
+        letter-spacing: 0.2px;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 16px;
+        border: 1px solid rgba(21, 21, 21, 0.12);
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--black);
+        outline: none;
+        font-size: 13px;
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .hint {
+        font-size: 12px;
+        color: rgba(21, 21, 21, 0.55);
+        line-height: 1.55;
+      }
+
+      /* ====== Footer ====== */
+      footer {
+        padding: 32px 0 60px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--muted);
+        border-top: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.50);
+      }
+
+      .watermark {
+        margin-top: 12px;
+        font-size: 11px;
+        color: rgba(21, 21, 21, 0.45);
+        letter-spacing: 0.6px;
+      }
+
+      /* ====== Sticky CTA ====== */
+      .stickyCta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 12px;
+        z-index: 70;
+        pointer-events: none;
+      }
+
+      .stickyInner {
+        pointer-events: auto;
+        width: min(1120px, calc(100% - 24px));
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(21, 21, 21, 0.10);
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .stickyLeft {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(21, 21, 21, 0.75);
+        font-size: 12.5px;
+      }
+
+      .pulse {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.9);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.35);
+        animation: pulse 1.8s infinite;
+      }
+
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.35); }
+        70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      }
+
+      /* ====== Responsive ====== */
+      @media (min-width: 768px) {
+        .nav-links {
+          display: flex;
+        }
+
+        .hamb {
+          display: none;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1.15fr 0.85fr;
+          align-items: center;
+        }
+
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-grid {
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: start;
+        }
+
+        .contact {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .grid.collections {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .grid.benefits {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .product-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 520px) {
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .stickyInner {
+          border-radius: 18px;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .stickyLeft {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ====== Header ====== -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M7 8c2-3 8-3 10 0"
+                  stroke="#151515"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M9 8v10M15 8v10"
+                  stroke="#151515"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M6.5 10.5h11"
+                  stroke="#c5a572"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="brand-name">
+              <div class="brand-title">Paris Boutique</div>
+              <div class="brand-sub">Moda femenina • Elegancia europea</div>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <a href="#colecciones">Colecciones</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#nosotros">Sobre nosotros</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+
+          <div class="nav-actions">
+            <a class="btn soft" id="emailTop" href="#">Correo</a>
+            <button class="btn soft hamb" id="menuBtn" type="button">Menú</button>
+            <a class="btn primary" id="whatsappTop" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </nav>
+
+        <div id="mobileMenu">
+          <div class="mobileLinks">
+            <a class="btn soft" href="#colecciones">Colecciones</a>
+            <a class="btn soft" href="#catalogo">Catálogo</a>
+            <a class="btn soft" href="#nosotros">Sobre nosotros</a>
+            <a class="btn soft" href="#beneficios">Beneficios</a>
+            <a class="btn soft" href="#faq">FAQ</a>
+            <a class="btn soft" href="#contacto">Contacto</a>
+            <a class="btn soft" id="emailMobile" href="#">Correo</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ====== Hero ====== -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="kicker">
+              <span class="dot" aria-hidden="true"></span>
+              Lanzamiento de temporada • Piezas curadas
+            </div>
+
+            <h1>Paris Boutique</h1>
+            <p>
+              Moda que inspira elegancia y estilo. Selección femenina con esencia parisina:
+              siluetas refinadas, tonos suaves y detalles que elevan tu look sin esfuerzo.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#catalogo">Ver catálogo</a>
+              <a class="btn accent" href="#colecciones">Explorar colecciones</a>
+              <a class="btn soft" id="whatsappHero" href="#" target="_blank" rel="noreferrer">Pedir por WhatsApp</a>
+            </div>
+
+            <div style="margin-top: 14px; display:flex; flex-wrap:wrap; gap:10px;">
+              <span class="pill">Selección premium</span>
+              <span class="pill">Asesoría personalizada</span>
+              <span class="pill">Estilo europeo</span>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <h3>Detalles de la boutique</h3>
+            <ul>
+              <li><span class="dot" aria-hidden="true"></span>Selección curada de piezas femeninas (nuevas llegadas semanalmente)</li>
+              <li><span class="dot" aria-hidden="true"></span>Inspiración parisina + esencia contemporánea</li>
+              <li><span class="dot" aria-hidden="true"></span>Asesoría cercana: talla, ocasión y combinaciones</li>
+              <li><span class="dot" aria-hidden="true"></span>Pedidos especiales y recomendaciones por WhatsApp</li>
+            </ul>
+            <div style="margin-top:14px; border-top:1px solid var(--stroke); padding-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn primary" id="whatsappCard" href="#" target="_blank" rel="noreferrer">Hablar ahora</a>
+              <a class="btn soft" href="#contacto">Solicitar asesoría</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Colecciones ====== -->
+    <section id="colecciones" class="collections">
+      <div class="container">
+        <div class="section-title">
+          <h2>Colecciones</h2>
+          <p>Piezas elegantes para cada ocasión.</p>
+        </div>
+
+        <div class="grid collections">
+          <div class="card collection-card">
+            <h3>Vestidos</h3>
+            <p>Siluetas refinadas con detalles delicados y caída perfecta.</p>
+          </div>
+          <div class="card collection-card">
+            <h3>Blusas</h3>
+            <p>Texturas suaves y cortes sofisticados para un look moderno.</p>
+          </div>
+          <div class="card collection-card">
+            <h3>Pantalones</h3>
+            <p>Diseños elegantes con estructura impecable y comodidad premium.</p>
+          </div>
+          <div class="card collection-card">
+            <h3>Accesorios</h3>
+            <p>Detalles sutiles en tonos dorados y nude para elevar tu estilo.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="pill">Nuevas llegadas</span>
+          <span class="pill">Ediciones limitadas</span>
+          <span class="pill">Looks completos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Catálogo ====== -->
+    <section id="catalogo">
+      <div class="container">
+        <div class="section-title">
+          <h2>Catálogo</h2>
+          <p>Productos de muestra para portafolio (precio referencial).</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge gold">Nuevo</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Vestido “Champs-Élysées”</h4>
+                <span class="price">$189.000</span>
+              </div>
+              <p class="product-desc">Tela suave, caída elegante y detalles minimalistas. Ideal para eventos y cenas.</p>
+              <div class="product-meta">
+                <span class="chip">S • M • L</span>
+                <span class="chip">Nude</span>
+                <span class="chip">Premium</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Vestido “Champs-Élysées”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge">Best seller</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Blusa “Lumière”</h4>
+                <span class="price">$89.000</span>
+              </div>
+              <p class="product-desc">Corte sofisticado, textura ligera y look elegante para el día a día.</p>
+              <div class="product-meta">
+                <span class="chip">XS • S • M</span>
+                <span class="chip">Marfil</span>
+                <span class="chip">Suave</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Blusa “Lumière”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge gold">Edición</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Pantalón “Rive Gauche”</h4>
+                <span class="price">$149.000</span>
+              </div>
+              <p class="product-desc">Estructura impecable y comodidad premium. Perfecto para oficina o salidas.</p>
+              <div class="product-meta">
+                <span class="chip">S • M • L</span>
+                <span class="chip">Beige</span>
+                <span class="chip">Fit</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Pantalón “Rive Gauche”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge">Accesorio</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Bolso “Petit Doré”</h4>
+                <span class="price">$129.000</span>
+              </div>
+              <p class="product-desc">Detalle dorado sutil, combinación nude y tamaño perfecto para cualquier look.</p>
+              <div class="product-meta">
+                <span class="chip">Única</span>
+                <span class="chip">Nude</span>
+                <span class="chip">Gold</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Bolso “Petit Doré”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge">Nuevo</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Blazer “Montmartre”</h4>
+                <span class="price">$219.000</span>
+              </div>
+              <p class="product-desc">Sastrería ligera, elegante y versátil. Eleva cualquier outfit en segundos.</p>
+              <div class="product-meta">
+                <span class="chip">S • M • L</span>
+                <span class="chip">Negro</span>
+                <span class="chip">Sastre</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Blazer “Montmartre”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge gold">Top</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Falda “Étoile”</h4>
+                <span class="price">$119.000</span>
+              </div>
+              <p class="product-desc">Movimiento elegante y tono blush delicado. Combina con blusas y blazers.</p>
+              <div class="product-meta">
+                <span class="chip">XS • S • M</span>
+                <span class="chip">Blush</span>
+                <span class="chip">Flow</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Falda “Étoile”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge">Accesorio</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Aretes “Or Élégant”</h4>
+                <span class="price">$49.000</span>
+              </div>
+              <p class="product-desc">Dorado suave, minimalista y elegante. Perfecto para diario o eventos.</p>
+              <div class="product-meta">
+                <span class="chip">Única</span>
+                <span class="chip">Gold</span>
+                <span class="chip">Light</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Aretes “Or Élégant”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-media">
+              <span class="product-badge">Best seller</span>
+              <div class="product-placeholder">Imagen</div>
+            </div>
+            <div class="product-body">
+              <div class="product-title">
+                <h4>Top “Rose Satin”</h4>
+                <span class="price">$79.000</span>
+              </div>
+              <p class="product-desc">Satinado suave, tono rosé y ajuste cómodo. Un clásico para looks parisinos.</p>
+              <div class="product-meta">
+                <span class="chip">XS • S • M</span>
+                <span class="chip">Rosé</span>
+                <span class="chip">Satin</span>
+              </div>
+              <div class="product-actions">
+                <a class="btn primary waProduct" data-product="Top “Rose Satin”" href="#" target="_blank" rel="noreferrer">Pedir</a>
+                <a class="btn soft" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <span class="pill">Best sellers</span>
+            <span class="pill">Nuevas llegadas</span>
+            <span class="pill">Looks completos</span>
+          </div>
+          <a class="btn primary" href="#contacto">Pedir asesoría</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Sobre nosotros ====== -->
+    <section id="nosotros">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sobre nosotros</h2>
+          <p>Moda femenina con sello parisino.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card about-card">
+            <p>
+              Paris Boutique es una tienda de moda femenina dedicada a resaltar la elegancia,
+              la delicadeza y la confianza. Seleccionamos tendencias europeas con acabados
+              impecables para ofrecer prendas de alta calidad, pensadas para mujeres que
+              buscan estilo y sofisticación en cada detalle.
+            </p>
+            <p style="margin-top:12px; color: var(--muted); line-height:1.8;">
+              Este sitio es un <b>boceto de portafolio</b> para presentar el concepto: estructura,
+              estilo visual, secciones y flujo de contacto (WhatsApp + correo) sin backend.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true">✨</div>
+              <div>
+                <h4>Asesoría de estilo</h4>
+                <p>Te ayudamos a elegir por ocasión, color y silueta (mensaje rápido por WhatsApp).</p>
+              </div>
+            </div>
+            <div style="height:12px;"></div>
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true">🧵</div>
+              <div>
+                <h4>Detalles que se sienten</h4>
+                <p>Acabados, telas y cortes que hacen que una prenda “se vea” premium.</p>
+              </div>
+            </div>
+            <div style="height:12px;"></div>
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true">🖤</div>
+              <div>
+                <h4>Estilo atemporal</h4>
+                <p>Looks que duran más de una temporada: elegantes, simples y combinables.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Beneficios ====== -->
+    <section id="beneficios" class="benefits-strip">
+      <div class="container">
+        <div class="section-title">
+          <h2>Beneficios</h2>
+          <p>Experiencia premium en cada visita.</p>
+        </div>
+
+        <div class="grid benefits">
+          <div class="card">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true">🧷</div>
+              <div>
+                <h4>Prendas seleccionadas</h4>
+                <p>Curaduría cuidadosa con piezas exclusivas y atemporales.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true">💬</div>
+              <div>
+                <h4>Atención personalizada</h4>
+                <p>Asesoría cercana para encontrar el look perfecto.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true">🇫🇷</div>
+              <div>
+                <h4>Estilo europeo</h4>
+                <p>Inspiración parisina con toques contemporáneos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true">🧴</div>
+              <div>
+                <h4>Guía de cuidado</h4>
+                <p>Recomendaciones para conservar tus prendas como nuevas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Opiniones ====== -->
+    <section id="opiniones">
+      <div class="container">
+        <div class="section-title">
+          <h2>Opiniones</h2>
+          <p>Reseñas de ejemplo (placeholder para portafolio).</p>
+        </div>
+
+        <div class="grid">
+          <div class="card quote">
+            <div class="stars">★★★★★</div>
+            <p>“Me ayudaron a armar un look completo para un evento. Súper rápido por WhatsApp y todo precioso.”</p>
+            <div class="who"><span>Cliente</span><span>Asesoría</span></div>
+          </div>
+
+          <div class="card quote">
+            <div class="stars">★★★★★</div>
+            <p>“Se siente premium. La blusa es suave y el corte es perfecto. Volveré por más.”</p>
+            <div class="who"><span>Cliente</span><span>Blusas</span></div>
+          </div>
+
+          <div class="card quote">
+            <div class="stars">★★★★★</div>
+            <p>“Me encantó la selección: tonos delicados y prendas fáciles de combinar. Muy recomendado.”</p>
+            <div class="who"><span>Cliente</span><span>Vestidos</span></div>
+          </div>
+
+          <div class="card quote">
+            <div class="stars">★★★★★</div>
+            <p>“La atención fue impecable. Me orientaron con tallas y me dieron tips de cuidado.”</p>
+            <div class="who"><span>Cliente</span><span>Servicio</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FAQ ====== -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>FAQ</h2>
+          <p>Preguntas frecuentes para cerrar ventas.</p>
+        </div>
+
+        <div class="grid">
+          <details>
+            <summary>¿Cómo hago un pedido?</summary>
+            <p>Escríbenos por WhatsApp con el nombre de la prenda y tu talla. Te confirmamos disponibilidad y opciones.</p>
+          </details>
+
+          <details>
+            <summary>¿Puedo pedir asesoría de estilo?</summary>
+            <p>Sí. Cuéntanos la ocasión (evento, trabajo, casual), colores que te gustan y tu talla; te sugerimos combinaciones.</p>
+          </details>
+
+          <details>
+            <summary>¿Manejan cambios o ajustes?</summary>
+            <p>En este boceto no hay logística real, pero en una tienda real puedes definir políticas de cambio por talla y estado de la prenda.</p>
+          </details>
+
+          <details>
+            <summary>¿Tienen catálogo con fotos?</summary>
+            <p>Este es un demo. Si el cliente quiere, se integra un catálogo real con fotos (o incluso una tienda con pagos).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Contacto ====== -->
+    <section id="contacto">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contacto</h2>
+          <p>Escríbenos para pedidos especiales o información.</p>
+        </div>
+
+        <div class="contact">
+          <div class="card contact-card">
+            <p>
+              Nuestro equipo está listo para ayudarte con recomendaciones, disponibilidad y pedidos
+              personalizados. Contáctanos y vive la experiencia Paris Boutique.
+            </p>
+
+            <div class="contact-actions">
+              <a class="btn primary" id="whatsappBtn" href="#" target="_blank" rel="noreferrer">
+                WhatsApp
+              </a>
+              <a class="btn accent" id="emailBtn" href="#">Correo</a>
+              <a class="btn soft" href="#catalogo">Ver catálogo</a>
+            </div>
+
+            <div style="margin-top:14px; border-top:1px solid var(--stroke); padding-top:14px;">
+              <div class="pill" style="justify-content:space-between; width:100%;">
+                <span><b>WhatsApp:</b> 302 387 7799</span>
+                <span><b>Correo:</b> ballesterossmartsolutionssas@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card contact-card">
+            <p>
+              Puedes dejar tus datos y el producto que te interesa. El formulario abre tu correo
+              listo para enviar (sin backend). También puedes enviarlo por WhatsApp.
+            </p>
+
+            <form id="contactForm">
+              <div class="split">
+                <div class="field">
+                  <label for="nombre">Nombre</label>
+                  <input id="nombre" required placeholder="Ej: Andrea" />
+                </div>
+                <div class="field">
+                  <label for="telefono">Teléfono</label>
+                  <input id="telefono" required placeholder="Ej: 302 387 7799" />
+                </div>
+              </div>
+
+              <div class="split">
+                <div class="field">
+                  <label for="interes">Interés</label>
+                  <select id="interes">
+                    <option>Vestidos</option>
+                    <option>Blusas</option>
+                    <option>Pantalones</option>
+                    <option>Accesorios</option>
+                    <option>Asesoría de estilo</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="talla">Talla</label>
+                  <select id="talla">
+                    <option>XS</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                    <option>No estoy segura</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" placeholder="Ej: Me interesa el vestido Champs-Élysées en talla M. ¿Está disponible?"></textarea>
+              </div>
+
+              <div class="contact-actions">
+                <button class="btn primary" id="sendWaBtn" type="button">Enviar por WhatsApp</button>
+                <button class="btn" id="sendMailBtn" type="button">Enviar por correo</button>
+              </div>
+
+              <div class="hint">
+                Demo para portafolio: sin pagos, sin backend. Ideal para mostrar el concepto y flujo de contacto.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer>
+      <div class="container">
+        <div>© <span id="year"></span> Paris Boutique. Todos los derechos reservados.</div>
+        <div class="watermark">Diseño y desarrollo por Ballesteros Smart Solutions S.A.S</div>
+      </div>
+    </footer>
+
+    <!-- Sticky CTA -->
+    <div class="stickyCta">
+      <div class="stickyInner">
+        <div class="stickyLeft">
+          <span class="pulse" aria-hidden="true"></span>
+          <span><b>Disponible</b> • Respuesta rápida por WhatsApp o correo</span>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+          <a class="btn soft" id="emailSticky" href="#">Correo</a>
+          <a class="btn primary" id="whatsappSticky" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ====== Configuración de contacto (empresa) ======
+      const WHATSAPP_NUMBER = "573023877799"; // 57 + 3023877799
+      const EMAIL = "ballesterossmartsolutionssas@gmail.com";
+
+      // Mensaje base (genérico)
+      const WA_DEFAULT =
+        "Hola, quiero información sobre Paris Boutique y sus colecciones.";
+
+      // ====== Helpers ======
+      const $ = (id) => document.getElementById(id);
+      const waLink = (text) =>
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+      const mailtoLink = (subject, body) =>
+        `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      function buildFormMessage() {
+        const nombre = $("nombre").value.trim() || "Cliente";
+        const tel = $("telefono").value.trim() || "N/A";
+        const interes = $("interes").value;
+        const talla = $("talla").value;
+        const msg = $("mensaje").value.trim() || "Quiero información, por favor.";
+
+        return (
+          "Hola, soy " + nombre + ". Quiero información / pedido.\n" +
+          "Interés: " + interes + "\n" +
+          "Talla: " + talla + "\n" +
+          "Mensaje: " + msg + "\n" +
+          "Teléfono: " + tel + "\n\n" +
+          "¿Me puedes ayudar?"
+        );
+      }
+
+      // ====== Init ======
+      $("year").textContent = new Date().getFullYear();
+
+      // Set WhatsApp + Email buttons
+      const waDefaultUrl = waLink(WA_DEFAULT);
+
+      const emailDefaultUrl = mailtoLink(
+        "Consulta Paris Boutique",
+        "Hola, me gustaría recibir información sobre Paris Boutique."
+      );
+
+      // Top
+      $("whatsappTop").href = waDefaultUrl;
+      $("emailTop").href = emailDefaultUrl;
+      $("emailMobile").href = emailDefaultUrl;
+
+      // Hero / Card
+      $("whatsappHero").href = waDefaultUrl;
+      $("whatsappCard").href = waDefaultUrl;
+
+      // Contact
+      $("whatsappBtn").href = waDefaultUrl;
+      $("emailBtn").href = emailDefaultUrl;
+
+      // Sticky
+      $("whatsappSticky").href = waDefaultUrl;
+      $("emailSticky").href = emailDefaultUrl;
+
+      // Product quick buttons
+      const productBtns = document.querySelectorAll(".waProduct");
+      productBtns.forEach((btn) => {
+        const productName = btn.getAttribute("data-product") || "Producto";
+        btn.href = waLink(`Hola, me interesa: ${productName}. ¿Está disponible?`);
+      });
+
+      // Form actions
+      $("sendWaBtn").addEventListener("click", () => {
+        const text = buildFormMessage();
+        window.open(waLink(text), "_blank", "noopener,noreferrer");
+      });
+
+      $("sendMailBtn").addEventListener("click", () => {
+        const text = buildFormMessage();
+        const subject = "Pedido / Consulta - Paris Boutique";
+        window.location.href = mailtoLink(subject, text);
+      });
+
+      // Mobile menu
+      const menuBtn = $("menuBtn");
+      const mobileMenu = $("mobileMenu");
+      menuBtn.addEventListener("click", () => {
+        const isOpen = mobileMenu.style.display === "block";
+        mobileMenu.style.display = isOpen ? "none" : "block";
+        menuBtn.textContent = isOpen ? "Menú" : "Cerrar";
+      });
+    </script>
+  </body>
+</html>
