@@ -71,6 +71,171 @@
         margin: 0 auto;
       }
 
+      .sectionTitle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .sectionTitle h2 {
+        margin: 0;
+        font-size: clamp(22px, 3vw, 32px);
+      }
+
+      .sectionTitle p {
+        margin: 6px 0 0;
+        color: var(--muted);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 12px;
+      }
+
+      .dotSmall {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.18);
+      }
+
+      .filters {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .searchInput {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .searchInput::placeholder {
+        color: var(--muted2);
+      }
+
+      .searchInput:focus-visible {
+        border-color: rgba(56, 189, 248, 0.6);
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+      }
+
+      .chipRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chipBtn {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--muted);
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 12.5px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .chipBtn.active,
+      .chipBtn:hover {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.26);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .cardHidden {
+        display: none;
+      }
+
+      .servicesGrid,
+      .packagesGrid,
+      .footerGrid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .servicesGrid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .packagesGrid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .packageCard {
+        position: relative;
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        background: rgba(255, 255, 255, 0.06);
+        padding: 22px;
+        box-shadow: var(--shadow2);
+      }
+
+      .packageCard strong {
+        font-size: 18px;
+        display: block;
+      }
+
+      .packageCard ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .packageBadge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.12);
+        color: var(--text);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .foot {
+        display: grid;
+        gap: 18px;
+      }
+
+      .footerGrid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footerCol h4 {
+        margin: 0 0 10px;
+        font-size: 14px;
+      }
+
+      .footerCol a {
+        display: block;
+        color: var(--muted);
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      .footerCol a:hover {
+        color: var(--text);
+      }
+
       /* ===== Header ===== */
       .topbar {
         position: sticky;
@@ -342,27 +507,6 @@
         padding: 34px 0;
       }
 
-      .sectionTitle {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: 14px;
-        margin-bottom: 14px;
-      }
-
-      .sectionTitle h2 {
-        margin: 0;
-        font-size: 16px;
-        letter-spacing: -0.2px;
-      }
-
-      .sectionTitle p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 12.5px;
-        line-height: 1.5;
-      }
-
       .grid3 {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -375,26 +519,6 @@
         border-radius: var(--r-xl);
         padding: 16px;
         box-shadow: var(--shadow2);
-      }
-
-      .tag {
-        display: inline-flex;
-        gap: 8px;
-        align-items: center;
-        padding: 7px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        color: var(--muted);
-        font-size: 12px;
-        width: fit-content;
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .dotSmall {
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--accent2), var(--accent));
       }
 
       .card h3 {
@@ -526,6 +650,11 @@
         .stats {
           grid-template-columns: 1fr;
         }
+        .servicesGrid,
+        .packagesGrid,
+        .footerGrid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 760px) {
@@ -570,6 +699,7 @@
           <div class="navlinks">
             <a href="#proyectos">Proyectos</a>
             <a href="#servicios">Servicios</a>
+            <a href="#paquetes">Paquetes</a>
             <a href="#proceso">Proceso</a>
             <a href="#faq">FAQ</a>
           </div>
@@ -603,6 +733,7 @@
           <div class="mobileLinks">
             <a class="btn ghost" href="#proyectos">Proyectos</a>
             <a class="btn ghost" href="#servicios">Servicios</a>
+            <a class="btn ghost" href="#paquetes">Paquetes</a>
             <a class="btn ghost" href="#proceso">Proceso</a>
             <a class="btn ghost" href="#faq">FAQ</a>
           </div>
@@ -641,7 +772,7 @@
 
             <div class="stats">
               <div class="stat">
-                <b>3</b>
+                <b>6</b>
                 <span>Diseños listos y hosteados con GitHub Pages.</span>
               </div>
               <div class="stat">
@@ -696,8 +827,46 @@
           <span class="tag"><span class="dotSmall"></span>HTML • CSS • JS</span>
         </div>
 
-        <div class="grid3">
-          <div class="card">
+        <div class="filters">
+          <input
+            id="searchInput"
+            class="searchInput"
+            type="search"
+            placeholder="Buscar por nombre, categoría o tag..."
+            aria-label="Buscar demos"
+          />
+          <div class="chipRow" role="list">
+            <button class="chipBtn active" type="button" data-filter="all">
+              Todos
+            </button>
+            <button class="chipBtn" type="button" data-filter="Moda">
+              Moda
+            </button>
+            <button class="chipBtn" type="button" data-filter="Servicio técnico">
+              Servicio técnico
+            </button>
+            <button class="chipBtn" type="button" data-filter="Restaurante">
+              Restaurante
+            </button>
+            <button class="chipBtn" type="button" data-filter="Legal">
+              Legal
+            </button>
+            <button class="chipBtn" type="button" data-filter="Inmobiliaria">
+              Inmobiliaria
+            </button>
+            <button class="chipBtn" type="button" data-filter="Corporativo">
+              Corporativo
+            </button>
+          </div>
+        </div>
+
+        <div class="grid3" id="projectGrid">
+          <div
+            class="card"
+            data-category="Moda"
+            data-name="Paris Boutique"
+            data-tags="fashion boutique elegante premium"
+          >
             <span class="tag"><span class="dotSmall"></span>Fashion / Boutique</span>
             <h3>Paris Boutique</h3>
             <p>
@@ -715,7 +884,12 @@
             </div>
           </div>
 
-          <div class="card">
+          <div
+            class="card"
+            data-category="Servicio técnico"
+            data-name="RefriLavadoras Dark"
+            data-tags="servicio tecnico dark reparacion lavadoras neveras"
+          >
             <span class="tag"><span class="dotSmall"></span>Servicio técnico</span>
             <h3>RefriLavadoras — Dark Theme</h3>
             <p>
@@ -733,7 +907,12 @@
             </div>
           </div>
 
-          <div class="card">
+          <div
+            class="card"
+            data-category="Servicio técnico"
+            data-name="RefriLavadoras Light"
+            data-tags="servicio tecnico light corporativo reparacion"
+          >
             <span class="tag"><span class="dotSmall"></span>Servicio técnico</span>
             <h3>RefriLavadoras — Light Theme</h3>
             <p>
@@ -748,6 +927,75 @@
             <div class="projectBtns">
               <a class="btn primary" href="./appliance-repair-light/">Abrir demo</a>
               <a class="btn" href="./appliance-repair-light/">Ver carpeta</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-category="Restaurante"
+            data-name="Bistro & Café"
+            data-tags="restaurante cafe menu reservas elegante"
+          >
+            <span class="tag"><span class="dotSmall"></span>Restaurante</span>
+            <h3>Bistro & Café</h3>
+            <p>
+              Estilo claro y elegante con menú destacado, reservas por correo y
+              testimonios para elevar la percepción premium.
+            </p>
+            <div class="metaRow">
+              <span class="chip">Menú visual</span>
+              <span class="chip">Reservas mailto</span>
+              <span class="chip">CTA WhatsApp</span>
+            </div>
+            <div class="projectBtns">
+              <a class="btn primary" href="./restaurant-bistro/">Abrir demo</a>
+              <a class="btn" href="./restaurant-bistro/">Ver carpeta</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-category="Legal, Corporativo"
+            data-name="Estudio Jurídico"
+            data-tags="legal corporativo abogados confianza"
+          >
+            <span class="tag"><span class="dotSmall"></span>Legal</span>
+            <h3>Estudio Jurídico</h3>
+            <p>
+              Diseño corporativo en azul marino y dorado: servicios legales,
+              proceso claro y equipo destacado.
+            </p>
+            <div class="metaRow">
+              <span class="chip">Servicios legales</span>
+              <span class="chip">Proceso claro</span>
+              <span class="chip">Contacto directo</span>
+            </div>
+            <div class="projectBtns">
+              <a class="btn primary" href="./law-firm/">Abrir demo</a>
+              <a class="btn" href="./law-firm/">Ver carpeta</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-category="Inmobiliaria"
+            data-name="Inmobiliaria Aurora"
+            data-tags="inmobiliaria propiedades real estate modern"
+          >
+            <span class="tag"><span class="dotSmall"></span>Inmobiliaria</span>
+            <h3>Inmobiliaria Aurora</h3>
+            <p>
+              Landing moderna con propiedades destacadas, beneficios claros y
+              formulario mailto para captación de leads.
+            </p>
+            <div class="metaRow">
+              <span class="chip">Propiedades</span>
+              <span class="chip">Formulario mailto</span>
+              <span class="chip">Beneficios</span>
+            </div>
+            <div class="projectBtns">
+              <a class="btn primary" href="./real-estate/">Abrir demo</a>
+              <a class="btn" href="./real-estate/">Ver carpeta</a>
             </div>
           </div>
         </div>
@@ -765,7 +1013,7 @@
           <span class="tag"><span class="dotSmall"></span>Escalable</span>
         </div>
 
-        <div class="grid3">
+        <div class="servicesGrid">
           <div class="card">
             <span class="tag"><span class="dotSmall"></span>Landing page</span>
             <h3>Diseño + copy persuasivo</h3>
@@ -791,6 +1039,111 @@
               Publicación en GitHub Pages y entrega del link. Opcional:
               dominio propio, analytics y SEO básico.
             </p>
+          </div>
+
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Branding</span>
+            <h3>Identidad visual coherente</h3>
+            <p>
+              Ajuste de tipografías, iconografía y tono de marca para lograr
+              una experiencia profesional y consistente.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Conversión</span>
+            <h3>CTA y funnels optimizados</h3>
+            <p>
+              Botones de acción claros (WhatsApp, correo, formularios) y jerarquía
+              visual para impulsar leads.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag"><span class="dotSmall"></span>Escalabilidad</span>
+            <h3>Base para sitio completo</h3>
+            <p>
+              De landing a web corporativa: secciones adicionales, SEO avanzado,
+              blog y analítica según necesidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Packages ===== -->
+    <section id="paquetes">
+      <div class="container">
+        <div class="sectionTitle">
+          <div>
+            <h2>Paquetes recomendados</h2>
+            <p>Planes listos para cotizar según el alcance del cliente.</p>
+          </div>
+          <span class="tag"><span class="dotSmall"></span>3 planes</span>
+        </div>
+
+        <div class="packagesGrid">
+          <div class="packageCard">
+            <span class="packageBadge">Starter</span>
+            <strong>Presencia rápida</strong>
+            <p style="color:var(--muted); margin:10px 0 0;">
+              Landing esencial para captar leads y validar el negocio.
+            </p>
+            <ul>
+              <li>1 página con secciones clave</li>
+              <li>WhatsApp + correo configurados</li>
+              <li>Entrega en GitHub Pages</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a
+                class="btn primary"
+                href="mailto:ballesterossmartsolutionssas@gmail.com?subject=Plan%20Starter%20-%20Landing%20Page"
+              >
+                Cotizar Starter
+              </a>
+            </div>
+          </div>
+
+          <div class="packageCard">
+            <span class="packageBadge">Pro</span>
+            <strong>Marca comercial</strong>
+            <p style="color:var(--muted); margin:10px 0 0;">
+              Sitio optimizado con contenido persuasivo y estética premium.
+            </p>
+            <ul>
+              <li>Diseño personalizado + copy</li>
+              <li>Secciones ampliadas y FAQ</li>
+              <li>Optimización SEO básica</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a
+                class="btn primary"
+                href="mailto:ballesterossmartsolutionssas@gmail.com?subject=Plan%20Pro%20-%20Landing%20Page"
+              >
+                Cotizar Pro
+              </a>
+            </div>
+          </div>
+
+          <div class="packageCard">
+            <span class="packageBadge">Premium</span>
+            <strong>Experiencia completa</strong>
+            <p style="color:var(--muted); margin:10px 0 0;">
+              Para marcas que quieren una web lista para escalar con analítica.
+            </p>
+            <ul>
+              <li>Multipágina + branding total</li>
+              <li>Integraciones avanzadas</li>
+              <li>Soporte y mejoras continuas</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a
+                class="btn primary"
+                href="mailto:ballesterossmartsolutionssas@gmail.com?subject=Plan%20Premium%20-%20Sitio%20Web"
+              >
+                Cotizar Premium
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -893,13 +1246,47 @@
     <footer>
       <div class="container">
         <div class="foot">
+          <div class="footerGrid">
+            <div class="footerCol">
+              <h4>Portafolio</h4>
+              <a href="#proyectos">Ver demos</a>
+              <a href="#servicios">Servicios</a>
+              <a href="#paquetes">Paquetes</a>
+              <a href="#proceso">Proceso</a>
+              <a href="#faq">FAQ</a>
+            </div>
+
+            <div class="footerCol">
+              <h4>Demos</h4>
+              <a href="./paris-boutique/">Paris Boutique</a>
+              <a href="./appliance-repair-dark/">RefriLavadoras Dark</a>
+              <a href="./appliance-repair-light/">RefriLavadoras Light</a>
+              <a href="./restaurant-bistro/">Bistro & Café</a>
+              <a href="./law-firm/">Estudio Jurídico</a>
+              <a href="./real-estate/">Inmobiliaria Aurora</a>
+            </div>
+
+            <div class="footerCol">
+              <h4>Contacto</h4>
+              <a
+                href="https://wa.me/573023877799?text=Hola%2C%20quiero%20cotizar%20una%20landing%20page%20para%20mi%20negocio."
+                >WhatsApp directo</a
+              >
+              <a href="mailto:ballesterossmartsolutionssas@gmail.com"
+                >ballesterossmartsolutionssas@gmail.com</a
+              >
+              <span style="color:var(--muted2); font-size:12.5px;">
+                Respuesta rápida y asesoría para cada demo.
+              </span>
+            </div>
+          </div>
+
           <div>
             © <span id="year"></span> • Web Design Portfolio
             <span style="color:var(--muted2)">— demos para clientes</span>
           </div>
           <div class="watermark">
-            Diseño y desarrollo por <b>Ballesteros Smart Solutions S.A.S</b> •
-            <a href="mailto:ballesterossmartsolutionssas@gmail.com">ballesterossmartsolutionssas@gmail.com</a>
+            Diseño y desarrollo por <b>Ballesteros Smart Solutions S.A.S</b>
           </div>
         </div>
       </div>
@@ -918,6 +1305,42 @@
           mobileMenu.style.display = open ? "none" : "block";
           menuBtn.textContent = open ? "Menú" : "Cerrar";
         });
+      }
+
+      const searchInput = document.getElementById("searchInput");
+      const projectCards = document.querySelectorAll("#projectGrid .card");
+      const chipButtons = document.querySelectorAll(".chipBtn");
+      let activeFilter = "all";
+
+      const applyFilters = () => {
+        const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+        projectCards.forEach((card) => {
+          const name = card.dataset.name?.toLowerCase() ?? "";
+          const tags = card.dataset.tags?.toLowerCase() ?? "";
+          const category = card.dataset.category ?? "";
+          const categories = category.split(",").map((item) => item.trim());
+          const matchesCategory =
+            activeFilter === "all" || categories.includes(activeFilter);
+          const matchesQuery =
+            !query ||
+            name.includes(query) ||
+            tags.includes(query) ||
+            category.toLowerCase().includes(query);
+          card.classList.toggle("cardHidden", !(matchesCategory && matchesQuery));
+        });
+      };
+
+      chipButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          chipButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          activeFilter = button.dataset.filter || "all";
+          applyFilters();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", applyFilters);
       }
     </script>
   </body>
